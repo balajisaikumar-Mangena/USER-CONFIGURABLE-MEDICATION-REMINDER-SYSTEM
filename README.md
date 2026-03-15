@@ -376,7 +376,6 @@ After confirmation:
 * Automatic next medicine detection
 * Low power embedded system design
 * Useful for elderly patient care
-
 ---
 
 # Example Output
