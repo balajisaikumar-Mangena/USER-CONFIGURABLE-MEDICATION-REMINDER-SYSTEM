@@ -30,7 +30,7 @@ The objectives of this project are:
 
 # Block Diagram
 
-![Block Diagram](images/Block Diagram.jpg)
+<img width="245" height="102" alt="Screenshot 2026-03-16 085106" src="https://github.com/user-attachments/assets/2c90c908-dc63-4d2f-8241-e3b10c01c99b" />
 
 The system consists of the following modules:
 
