@@ -1,16 +1,18 @@
 # USER CONFIGURABLE MEDICATION REMINDER SYSTEM
 
-Embedded System Project using LPC2148 Microcontroller
+Embedded System Project using **LPC2148 ARM7 Microcontroller**
 
 ---
 
 # Introduction
 
-The User Configurable Medication Reminder System is an embedded system designed to help users follow their medication schedule accurately. The system reminds users to take medicines at specific times using a buzzer alert and LCD display notification.
+The **User Configurable Medication Reminder System** is an embedded system designed to help users take medicines at the correct time.
 
-This project is implemented using the LPC2148 ARM7 microcontroller. The system integrates a Real Time Clock (RTC), 16x2 LCD display, keypad interface, and buzzer alert system.
+The system continuously monitors time using the **Real Time Clock (RTC)**. When the scheduled medicine time arrives, the system alerts the user using a **buzzer** and displays a reminder message on the **LCD screen**.
 
-Users can configure medicine schedules through a menu-driven interface. When the configured medicine time matches the RTC time, the system activates an alert and displays the next upcoming medicine time.
+Users can configure medicine schedules using a **keypad-based menu system**.
+
+This project is implemented using the **LPC2148 ARM7 microcontroller**, simulated in **Proteus**, and programmed using **Embedded C in Keil µVision**.
 
 ---
 
@@ -18,50 +20,79 @@ Users can configure medicine schedules through a menu-driven interface. When the
 
 The objectives of this project are:
 
-* To develop an embedded system that reminds users to take medicines on time.
-* To allow users to configure medicine schedules using a keypad interface.
-* To provide a simple LCD-based menu system for easy interaction.
-* To support dynamic medicine slot configuration.
-* To automatically determine and display the next upcoming medicine.
+* Develop a medicine reminder system using an embedded microcontroller.
+* Display real-time clock information on an LCD.
+* Allow users to configure medicine timings.
+* Alert the user when medicine time occurs.
+* Provide a simple menu-based user interface.
+
+---
+
+# Block Diagram
+
+![Block Diagram](images/block_diagram.jpg)
+
+The system consists of the following modules:
+
+* **LPC2148 Microcontroller** – Controls the entire system
+* **RTC** – Maintains current time and date
+* **LCD Display** – Shows time, menus, and reminders
+* **Keypad** – Used for menu navigation and configuration
+* **Buzzer** – Generates alert when medicine time arrives
+* **Switch1** – Used to enter edit mode
+* **Switch2** – Used to stop the reminder alert
+
+---
+
+# Circuit Diagram
+
+![Circuit Diagram](images/circuit_diagram.jpg)
+
+The circuit was designed and simulated in **Proteus**.
+It connects the **LPC2148 microcontroller** with the LCD, keypad, buzzer, and switches.
+
+---
+
+# Hardware Components
+
+The following hardware components are used:
+
+* LPC2148 ARM7 Microcontroller
+* 16x2 LCD Display
+* 4x4 Matrix Keypad
+* Buzzer
+* Push Button Switches
+* RTC module
+* Power Supply
+
+---
+
+# Software Tools
+
+The following software tools were used to develop this project:
+
+* **Keil µVision** – Embedded C development
+* **Proteus** – Circuit simulation
+* **Flash Magic** – Microcontroller programming
 
 ---
 
 # System Features
 
-## Real Time Clock Integration
+## Real Time Clock Monitoring
 
-* Maintains accurate system time using RTC.
-* Tracks hours, minutes, seconds, date, and day.
-* Continuously compares RTC time with configured medicine schedules.
+The system continuously reads time from the RTC and displays it on the LCD.
 
-## Medicine Reminder Alert
+Example display:
 
-* Buzzer activates when medicine time matches the configured schedule.
-* LCD displays reminder message indicating which medicine should be taken.
-* Alert continues until the user acknowledges the reminder.
+TIME : 06:31:17
+16/03/2026 MON
 
-## LCD Based User Interface
+---
 
-* Uses a 16x2 LCD display for system interaction.
-* Displays current time and date.
-* Shows medicine schedules and menu options.
-* Displays reminder notifications and next medicine time.
+## User Configurable Medicine Schedule
 
-## Keypad Based Navigation
-
-The keypad is used to navigate the menu system and configure settings.
-
-Navigation keys used in the project:
-
-* **6** : Move to next menu
-* **4** : Move to previous menu
-* **=** : Confirm or select option
-* **C** : Exit or return to previous menu
-* **5** : Display control key instructions
-
-## User Configurable Medicine Slots
-
-The system initially supports three medicine schedules.
+Users can configure medicine timings using the keypad through the edit menu.
 
 Default medicine slots:
 
@@ -69,333 +100,152 @@ Default medicine slots:
 * MEDICINE 2
 * MEDICINE 3
 
-Additional optional slots:
+Additional slots can also be added.
 
-* MEDICINE 4
-* MEDICINE 5
+---
 
-Users can dynamically add additional medicine slots through the edit menu.
+## Medicine Reminder Alert
 
-## Smart Next Medicine Detection
+When the RTC time matches a medicine schedule:
 
-After a medicine is acknowledged, the system automatically determines the next upcoming medicine based on the nearest future schedule.
+* LCD displays reminder message
+* Buzzer alert starts
 
 Example:
 
-Current Time
+TAKE MEDICINE 1
+PRESS SW2 STOP
 
-```
-14:30
-```
-
-Medicine Schedule
-
-```
-MED1 08:00
-MED2 12:00
-MED3 16:00
-MED4 18:00
-MED5 22:00
-```
-
-Displayed Output
-
-```
-NEXT MED 16:00
-```
-
-The system skips the current medicine and displays the nearest upcoming medicine.
-
-## Automatic Daily Cycle
-
-After the last medicine of the day, the system automatically selects the first medicine schedule for the next day.
+The alert stops when the user presses **Switch2**.
 
 ---
 
-# Hardware Components
+## Next Medicine Detection
 
-The following hardware components are used in this project:
+After a medicine is taken, the system automatically shows the next upcoming medicine time.
 
-* LPC2148 ARM7 Microcontroller
-* 16x2 LCD Display
-* Matrix Keypad
-* Real Time Clock (RTC)
-* Buzzer
-* 5V Regulated Power Supply
+Example:
+
+MEDICINE 1 TAKEN
+NEXT MED 12:30
 
 ---
 
-# Software Tools
+## LCD Menu Interface
 
-The following development tools were used:
+The system provides a simple **LCD based menu system**.
 
-* **Keil µVision** – Embedded C development
-* **Proteus** – Hardware simulation
-* **Flash Magic** – Microcontroller programming
+Example menu:
+
+* EDIT MODE *
+  RTC   MED   EXIT
+
+---
+
+# Keypad Controls
+
+| Key | Function                           |
+| --- | -----------------------------------|
+| 6   | Move to next menu                  |
+| 4   | Move to previous menu              |
+| =   | OK / Save & back to previous menu  |
+| C   | Exit                               |
+| 5   | Show control instructions          |
+
+---
+
+# System Screenshots
+
+### RTC Display
+
+![RTC Display](images/rtc_display.jpg)
+
+### Edit Mode Menu
+
+![Edit Menu](images/edit_mode_menu.jpg)
+
+### Keypad Control Instructions
+
+![Controls UI](images/controls_ui.jpg)
+
+### Add Medicine Slot
+
+![Add Slot](images/add_medicine_slot.jpg)
+
+### Slot Added Successfully
+
+![Slot Added](images/slot_added_success.jpg)
+
+### Medicine Reminder Alert
+
+![Medicine Alert](images/medicine_alert.jpg)
+
+### Next Medicine Display
+
+![Next Medicine](images/next_medicine_display.jpg)
 
 ---
 
 # Project Structure
 
-The project is divided into multiple modules to maintain clean and structured code.
-
-```
 USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
-
-Mini_Project.c
-M_P_func.c
-M_P_func.h
-
-RTC_functions.c
-RTC.h
-
-EINT.c
-EINT.h
-
-LCD_functions.c
-lcd.h
-
-KPM_Func.c
-KPM.h
-
-delay_functions.c
-delay.h
-```
-
----
-
-# Source File Description
-
-## Mini_Project.c
-
-This is the main program file that controls the overall execution of the system.
-
-Responsibilities:
-
-* Initializes LCD module
-* Initializes keypad module
-* Initializes RTC module
-* Initializes interrupt system
-* Displays project startup message
-* Runs the main program loop
-* Calls display and alert functions
-
-Main functions called:
-
-* Display_Menu()
-* Alert()
-* Edit_menu()
-
----
-
-## M_P_func.c
-
-This file contains the core logic of the medication reminder system.
-
-Responsibilities include:
-
-* Menu system implementation
-* LCD user interface control
-* Medicine schedule management
-* Medicine reminder alert logic
-* Medicine time editing functions
-* Next medicine detection logic
-* Dynamic medicine slot management
-
----
-
-## M_P_func.h
-
-Header file for the main project functions.
-
-Contains declarations for major system functions including:
-
-* Display_Menu()
-* Alert()
-* Edit_menu()
-* Medicine display functions
-* Time editing functions
-* Menu control functions
-
----
-
-## RTC_functions.c
-
-Handles Real Time Clock operations.
-
-Responsibilities:
-
-* Initialize RTC module
-* Read current time
-* Read current date
-* Display RTC information on LCD
-* Update RTC registers
-
----
-
-## RTC.h
-
-Header file for RTC module.
-
-Contains RTC variable definitions and function declarations.
-
----
-
-## EINT.c
-
-Handles external interrupt operations.
-
-Responsibilities:
-
-* Detect interrupt signals
-* Detect acknowledgement switch press
-* Stop buzzer alert when medicine is taken
-
----
-
-## EINT.h
-
-Header file for interrupt module containing interrupt declarations.
-
----
-
-## LCD_functions.c
-
-Contains functions used to control the LCD display.
-
-Functions implemented:
-
-* init_LCD()
-* cmd_LCD()
-* char_LCD()
-* str_LCD()
-
-These functions are used to display menus, system messages, and reminder alerts.
-
----
-
-## lcd.h
-
-Header file for LCD module containing LCD function declarations.
-
----
-
-## KPM_Func.c
-
-Handles keypad interface and key detection.
-
-Functions implemented:
-
-* init_KPM()
-* Keypad_Scan()
-
-This module allows the user to navigate menus and configure system settings.
-
----
-
-## KPM.h
-
-Header file for keypad module containing keypad function declarations.
-
----
-
-## delay_functions.c
-
-Implements delay functions used for system timing.
-
-Functions implemented:
-
-* delay_s()
-* delay_ms()
-* delay_us()
-
-These delays are used for LCD timing and program execution control.
-
----
-
-## delay.h
-
-Header file containing delay function declarations.
+│
+├── src
+│   ├── Mini_Project.c
+│   ├── M_P_func.c
+│   ├── RTC_functions.c
+│   ├── LCD_functions.c
+│   ├── KPM_Func.c
+│   ├── EINT.c
+│   └── delay_functions.c
+│
+├── include
+│   ├── M_P_func.h
+│   ├── RTC.h
+│   ├── lcd.h
+│   ├── KPM.h
+│   ├── EINT.h
+│   └── delay.h
+│
+├── images
+│   ├── block_diagram.jpg
+│   ├── circuit_diagram.jpg
+│   ├── rtc_display.jpg
+│   ├── edit_mode_menu.jpg
+│   ├── controls_ui.jpg
+│   ├── add_medicine_slot.jpg
+│   ├── slot_added_success.jpg
+│   ├── medicine_alert.jpg
+│   ├── next_medicine_display.jpg
+│   └── startup_screen.jpg
+│
+└── README.md
 
 ---
 
 # System Workflow
 
-## System Initialization
-
-When the system starts:
-
-* LCD is initialized
-* RTC module is started
-* Keypad interface is configured
-* Interrupt module is enabled
-* System enters the main program loop
-
-## Normal Operation
-
-During normal operation:
-
-* LCD displays the current time and date
-* System rotates through medicine schedules
-* User can enter edit mode using keypad
-
-## Configuration Mode
-
-Users can configure system parameters including:
-
-* RTC Time
-* RTC Date
-* RTC Day
-* Medicine schedules
-* Additional medicine slots
-
-## Medicine Reminder Operation
-
-When RTC time matches a medicine schedule:
-
-* LCD displays reminder message
-* Buzzer alert is activated
-* User presses acknowledgement switch
-* Alert stops after confirmation
-
-## Next Medicine Display
-
-After confirmation:
-
-* System calculates nearest upcoming medicine
-* LCD displays next medicine schedule
+1. System initializes LCD, RTC, keypad, and interrupts.
+2. LCD displays the current time and date.
+3. User can enter **Edit Mode** using Switch1.
+4. User configures medicine schedules using keypad.
+5. System continuously compares RTC time with medicine schedules.
+6. When medicine time occurs, buzzer alert activates.
+7. User presses **Switch2** to stop alert.
+8. System calculates and displays the **next upcoming medicine**.
 
 ---
 
 # Advantages
 
-* Helps users maintain proper medication schedules
-* Simple and easy to use interface
-* Configurable medicine schedules
-* Dynamic medicine slot addition
+* Helps users take medicines on time
+* Easy to configure schedules
+* Simple menu-based interface
 * Automatic next medicine detection
-* Low power embedded system design
 * Useful for elderly patient care
----
-
-# Example Output
-
-When medicine time arrives:
-
-```
-TAKE MEDICINE 2
-PRESS SW2 STOP
-```
-
-After acknowledgement:
-
-```
-MEDICINE 2 TAKEN
-NEXT MED 16:30
-```
 
 ---
 
 # Author
 
-Mangena Balaji Sai Kumar
+**Mangena Balaji Sai Kumar**
