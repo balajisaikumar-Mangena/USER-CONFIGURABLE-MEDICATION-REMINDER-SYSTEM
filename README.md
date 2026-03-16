@@ -186,8 +186,6 @@ Example menu:
 
 ---
 
-# Project Structure
-
 USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │
 ├── src
@@ -220,8 +218,6 @@ USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │   └── startup_screen.jpg
 │
 └── README.md
-
----
 
 # System Workflow
 
