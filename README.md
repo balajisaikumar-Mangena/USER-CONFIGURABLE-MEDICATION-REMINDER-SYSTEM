@@ -78,6 +78,8 @@ The following software tools were used to develop this project:
 # System Features
 
 ## Real Time Clock Monitoring
+<img width="246" height="102" alt="image" src="https://github.com/user-attachments/assets/43ce321e-0510-42bf-acb2-93fcc9c92ba6" />
+
 
 The system continuously reads time from the RTC and displays it on the LCD.
 
@@ -141,6 +143,9 @@ Example menu:
 ---
 
 # Keypad Controls
+<div style="margin-left:2000px;">
+<img width="219" height="214" alt="image" src="https://github.com/user-attachments/assets/0d8d8c03-999d-4111-be3f-505df8a83725" />
+</div>
 
 | Key | Function                           |
 | --- | -----------------------------------|
@@ -155,26 +160,33 @@ Example menu:
 # System Screenshots
 
 ### Edit Mode Menu
-![Edit Mode Menu](images/Edit Mode display.jpg)
+![Edit Mode display](https://github.com/user-attachments/assets/b5edb5ee-6d27-4699-992d-a79fbbb910ca)
+
 
 ### Keypad Control Instructions
-![Controls UI](images/Controls UI.jpg)
+<img width="244" height="101" alt="Screenshot 2026-03-16 212938" src="https://github.com/user-attachments/assets/229dee61-4b65-4c1f-8fde-94f6fb1dddc7" />
+
+
 
 ### Add Medicine Slot
-![Add Medicine Slot](images/Add Med Slot UI.jpg)
+![Add Med Slot UI](https://github.com/user-attachments/assets/f3f3db1d-2493-4d02-921e-22fcdf6953a4)
+
 
 ### Slot Added Successfully
-![Slot Added Successfully](images/Slot ADD Succefully UI.jpg)
+![Slot ADD Succefully UI](https://github.com/user-attachments/assets/e720f64c-2340-45b8-b374-8afde9b521f3)
+
 
 ### Medicine Reminder Alert
-![Medicine Alert](images/TAke Medicine.jpg)
+![TAke Medicine](https://github.com/user-attachments/assets/0b383fac-5880-4d42-8462-3b5267f187b3)
+
 
 ### Next Medicine Display
-![Next Medicine](images/Next Med display.jpg)
+![Next Med display](https://github.com/user-attachments/assets/bc935136-97f7-4fc3-a495-5c678a167f07)
+
 ---
 
 # Project Structure
-
+```
 USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │
 ├── src
@@ -208,7 +220,7 @@ USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │   └── Medication_Reminder_System.pdsprj
 │
 └── README.md
-
+```
 # System Workflow
 
 1. System initializes LCD, RTC, keypad, and interrupts.
