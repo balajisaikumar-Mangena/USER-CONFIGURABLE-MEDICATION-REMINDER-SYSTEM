@@ -30,27 +30,26 @@ The objectives of this project are:
 
 # Block Diagram
 
-![Block Diagram](images/block_diagram.jpg)
+![Block Diagram](images/Block Diagram.jpg)
 
 The system consists of the following modules:
 
-* **LPC2148 Microcontroller** – Controls the entire system
-* **RTC** – Maintains current time and date
-* **LCD Display** – Shows time, menus, and reminders
-* **Keypad** – Used for menu navigation and configuration
-* **Buzzer** – Generates alert when medicine time arrives
-* **Switch1** – Used to enter edit mode
-* **Switch2** – Used to stop the reminder alert
+- LPC2148 Microcontroller – Controls the entire system
+- RTC – Maintains current time and date
+- LCD Display – Shows time, menus, and reminders
+- Keypad – Used for menu navigation and configuration
+- Buzzer – Generates alert when medicine time arrives
+- Switch1 – Used to enter edit mode
+- Switch2 – Used to stop the reminder alert
 
 ---
 
 # Circuit Diagram
 
-![Circuit Diagram](images/circuit_diagram.jpg)
+![Circuit Diagram](images/Circuit Diagram.jpg)
 
-The circuit was designed and simulated in **Proteus**.
-It connects the **LPC2148 microcontroller** with the LCD, keypad, buzzer, and switches.
-
+The circuit was designed and simulated in Proteus.  
+It connects the LPC2148 microcontroller with the LCD, keypad, buzzer, and switches.
 ---
 
 # Hardware Components
@@ -156,35 +155,26 @@ Example menu:
 
 # System Screenshots
 
-### RTC Display
-
-![RTC Display](images/rtc_display.jpg)
-
 ### Edit Mode Menu
-
-![Edit Menu](images/edit_mode_menu.jpg)
+![Edit Mode Menu](images/Edit Mode display.jpg)
 
 ### Keypad Control Instructions
-
-![Controls UI](images/controls_ui.jpg)
+![Controls UI](images/Controls UI.jpg)
 
 ### Add Medicine Slot
-
-![Add Slot](images/add_medicine_slot.jpg)
+![Add Medicine Slot](images/Add Med Slot UI.jpg)
 
 ### Slot Added Successfully
-
-![Slot Added](images/slot_added_success.jpg)
+![Slot Added Successfully](images/Slot ADD Succefully UI.jpg)
 
 ### Medicine Reminder Alert
-
-![Medicine Alert](images/medicine_alert.jpg)
+![Medicine Alert](images/TAke Medicine.jpg)
 
 ### Next Medicine Display
-
-![Next Medicine](images/next_medicine_display.jpg)
-
+![Next Medicine](images/Next Med display.jpg)
 ---
+
+# Project Structure
 
 USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │
@@ -206,16 +196,17 @@ USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │   └── delay.h
 │
 ├── images
-│   ├── block_diagram.jpg
-│   ├── circuit_diagram.jpg
-│   ├── rtc_display.jpg
-│   ├── edit_mode_menu.jpg
-│   ├── controls_ui.jpg
-│   ├── add_medicine_slot.jpg
-│   ├── slot_added_success.jpg
-│   ├── medicine_alert.jpg
-│   ├── next_medicine_display.jpg
-│   └── startup_screen.jpg
+│   ├── Block Diagram.jpg
+│   ├── Circuit Diagram.jpg
+│   ├── Edit Mode display.jpg
+│   ├── Controls UI.jpg
+│   ├── Add Med Slot UI.jpg
+│   ├── Slot ADD Succefully UI.jpg
+│   ├── TAke Medicine.jpg
+│   └── Next Med display.jpg
+│
+├── proteus
+│   └── Medication_Reminder_System.pdsprj
 │
 └── README.md
 
