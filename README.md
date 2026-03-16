@@ -29,8 +29,7 @@ The objectives of this project are:
 ---
 
 # Block Diagram
-
-<img width="245" height="102" alt="Screenshot 2026-03-16 085106" src="https://github.com/user-attachments/assets/2c90c908-dc63-4d2f-8241-e3b10c01c99b" />
+![Block Diagram](https://github.com/user-attachments/assets/672a50f9-da82-43e6-8e83-17c803dab419)
 
 The system consists of the following modules:
 
@@ -45,8 +44,8 @@ The system consists of the following modules:
 ---
 
 # Circuit Diagram
+![Circuit Diagram](https://github.com/user-attachments/assets/170aceb9-d40d-484a-9267-bf7e11c892e2)
 
-![Circuit Diagram](images/Circuit Diagram.jpg)
 
 The circuit was designed and simulated in Proteus.  
 It connects the LPC2148 microcontroller with the LCD, keypad, buzzer, and switches.
