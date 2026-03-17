@@ -1,249 +1,238 @@
-# USER CONFIGURABLE MEDICATION REMINDER SYSTEM
-
-Embedded System Project using **LPC2148 ARM7 Microcontroller**
-
----
-
-# Introduction
-
-The **User Configurable Medication Reminder System** is an embedded system designed to help users take medicines at the correct time.
-
-The system continuously monitors time using the **Real Time Clock (RTC)**. When the scheduled medicine time arrives, the system alerts the user using a **buzzer** and displays a reminder message on the **LCD screen**.
-
-Users can configure medicine schedules using a **keypad-based menu system**.
-
-This project is implemented using the **LPC2148 ARM7 microcontroller**, simulated in **Proteus**, and programmed using **Embedded C in Keil µVision**.
+# 💊 USER CONFIGURABLE MEDICATION REMINDER SYSTEM  
+### ⏰ Embedded System using LPC2148 (ARM7)
 
 ---
 
-# Project Objectives
+## ✨ Overview  
 
-The objectives of this project are:
+The **User Configurable Medication Reminder System** helps users take medicines on time using an embedded system.
 
-* Develop a medicine reminder system using an embedded microcontroller.
-* Display real-time clock information on an LCD.
-* Allow users to configure medicine timings.
-* Alert the user when medicine time occurs.
-* Provide a simple menu-based user interface.
+It uses **RTC ⏰** to track time and alerts using **LCD 📟 + Buzzer 🔔**.  
+Users can configure schedules using a **Keypad 🔢**.
 
 ---
 
-# Block Diagram
-![Block Diagram](https://github.com/user-attachments/assets/672a50f9-da82-43e6-8e83-17c803dab419)
+## 🚀 Features  
 
-The system consists of the following modules:
-
-- LPC2148 Microcontroller – Controls the entire system
-- RTC – Maintains current time and date
-- LCD Display – Shows time, menus, and reminders
-- Keypad – Used for menu navigation and configuration
-- Buzzer – Generates alert when medicine time arrives
-- Switch1 – Used to enter edit mode
-- Switch2 – Used to stop the reminder alert
+✔️ Real-Time Clock Monitoring  
+✔️ User Configurable Medicine Slots  
+✔️ LCD Menu Interface  
+✔️ Buzzer Alert System 🔔  
+✔️ Next Medicine Prediction  
+✔️ Interrupt-Based Control (EINT0 & EINT1)  
+✔️ Simple UI  
 
 ---
 
-# Circuit Diagram
-![Circuit Diagram](https://github.com/user-attachments/assets/170aceb9-d40d-484a-9267-bf7e11c892e2)
+## 🧩 Block Diagram  
 
+<p align="center">
+<img src="Block Diagram.jpg" width="600">
+</p>
 
-The circuit was designed and simulated in Proteus.  
-It connects the LPC2148 microcontroller with the LCD, keypad, buzzer, and switches.
----
-
-# Hardware Components
-
-The following hardware components are used:
-
-* LPC2148 ARM7 Microcontroller
-* 16x2 LCD Display
-* 4x4 Matrix Keypad
-* Buzzer
-* Push Button Switches
-* RTC module
-* Power Supply
+This diagram shows how all components are connected to the LPC2148 microcontroller.  
+It illustrates the flow between keypad input, RTC processing, LCD output, and buzzer alert.
 
 ---
 
-# Software Tools
+## 🔌 Circuit Diagram  
 
-The following software tools were used to develop this project:
+<p align="center">
+<img src="Circuit Diagram.jpg" width="700">
+</p>
 
-* **Keil µVision** – Embedded C development
-* **Proteus** – Circuit simulation
-* **Flash Magic** – Microcontroller programming
-
----
-
-# System Features
-
-## Real Time Clock Monitoring
-<img width="246" height="102" alt="image" src="https://github.com/user-attachments/assets/43ce321e-0510-42bf-acb2-93fcc9c92ba6" />
-
-
-The system continuously reads time from the RTC and displays it on the LCD.
-
-Example display:
-
-TIME : 06:31:17
-16/03/2026 MON
+The circuit diagram represents the real hardware connections used in Proteus simulation.  
+It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 
 ---
 
-## User Configurable Medicine Schedule
+## ⚙️ Hardware Setup  
 
-Users can configure medicine timings using the keypad through the edit menu.
+### 🔘 Switch 1 (Edit Mode)
+<p align="center">
+<img src="SW1_Edit_mode.jpg" width="250">
+</p>
 
-Default medicine slots:
-
-* MEDICINE 1
-* MEDICINE 2
-* MEDICINE 3
-
-Additional slots can also be added.
+Switch1 is used to enter configuration or edit mode using external interrupt.  
+It allows the user to modify RTC time and medicine schedules.
 
 ---
 
-## Medicine Reminder Alert
+### 🔘 Switch 2 (Stop Alert)
+<p align="center">
+<img src="SW2_stop_alert.jpg" width="250">
+</p>
 
-When the RTC time matches a medicine schedule:
-
-* LCD displays reminder message
-* Buzzer alert starts
-
-Example:
-
-TAKE MEDICINE 1
-PRESS SW2 STOP
-
-The alert stops when the user presses **Switch2**.
+Switch2 is used to stop the buzzer alert during medicine reminders.  
+It confirms that the user has taken the medicine.
 
 ---
 
-## Next Medicine Detection
+## 🎮 Keypad Interface  
 
-After a medicine is taken, the system automatically shows the next upcoming medicine time.
+<p align="center">
+<img src="KPM.jpg" width="300">
+</p>
 
-Example:
-
-MEDICINE 1 TAKEN
-NEXT MED 12:30
-
----
-
-## LCD Menu Interface
-
-The system provides a simple **LCD based menu system**.
-
-Example menu:
-
-* EDIT MODE *
-  RTC   MED   EXIT
+The keypad is used for navigating menus and entering data.  
+Users can set time, configure medicine slots, and control system options.
 
 ---
 
-# Keypad Controls
-<div style="margin-left:2000px;">
-<img width="219" height="214" alt="image" src="https://github.com/user-attachments/assets/0d8d8c03-999d-4111-be3f-505df8a83725" />
-</div>
+## 📟 LCD User Interface  
 
-| Key | Function                           |
-| --- | -----------------------------------|
-| 6   | Move to next menu                  |
-| 4   | Move to previous menu              |
-| =   | OK / Save & back to previous menu  |
-| C   | Exit                               |
-| 5   | Show control instructions          |
+### 🟢 System Ready Screen
+<p align="center">
+<img src="MRS.png" width="350">
+</p>
+
+This screen indicates that the system is powered on and ready.  
+It shows the initial state before user interaction begins.
 
 ---
 
-# System Screenshots
+### ⏰ RTC Time Display
+<p align="center">
+<img src="RTC TIME DATE MED DISPLAY.jpg" width="350">
+</p>
 
-### Edit Mode Menu
-![Edit Mode display](https://github.com/user-attachments/assets/b5edb5ee-6d27-4699-992d-a79fbbb910ca)
-
-
-### Keypad Control Instructions
-<img width="244" height="101" alt="Screenshot 2026-03-16 212938" src="https://github.com/user-attachments/assets/229dee61-4b65-4c1f-8fde-94f6fb1dddc7" />
-
-
-
-### Add Medicine Slot
-![Add Med Slot UI](https://github.com/user-attachments/assets/f3f3db1d-2493-4d02-921e-22fcdf6953a4)
-
-
-### Slot Added Successfully
-![Slot ADD Succefully UI](https://github.com/user-attachments/assets/e720f64c-2340-45b8-b374-8afde9b521f3)
-
-
-### Medicine Reminder Alert
-![TAke Medicine](https://github.com/user-attachments/assets/0b383fac-5880-4d42-8462-3b5267f187b3)
-
-
-### Next Medicine Display
-![Next Med display](https://github.com/user-attachments/assets/bc935136-97f7-4fc3-a495-5c678a167f07)
+Displays current time and date continuously from RTC.  
+Acts as the main monitoring screen of the system.
 
 ---
 
-# Project Structure
+## 📋 Menu Screens  
+
+### ✏️ Edit Mode
+<p align="center">
+<img src="Edit Mode display.jpg" width="350">
+</p>
+
+This menu allows the user to select RTC edit or medicine configuration.  
+Navigation is done using keypad inputs.
+
+---
+
+### 🎮 Controls Info
+<p align="center">
+<img src="Controls UI.jpg" width="350">
+</p>
+
+Displays instructions for keypad usage.  
+Helps users understand navigation and control keys.
+
+---
+
+## 💊 Medicine Configuration  
+
+### ➕ Add Medicine Slot
+<p align="center">
+<img src="Add Med Slot UI.jpg" width="350">
+</p>
+
+Allows users to add a new medicine timing slot.  
+User presses '=' key to confirm addition.
+
+---
+
+### ✅ Slot Added Successfully
+<p align="center">
+<img src="Slot ADD Succefully UI.jpg" width="350">
+</p>
+
+Confirms that the medicine slot has been saved.  
+Provides feedback to the user after successful configuration.
+
+---
+
+## 🔔 Alert System  
+
+### ⚠️ Medicine Reminder
+<p align="center">
+<img src="TAke Medicine.jpg" width="350">
+</p>
+
+This alert is triggered when RTC matches a medicine schedule.  
+The buzzer turns ON and user is prompted to take medicine.
+
+---
+
+### ⏭️ Next Medicine Display
+<p align="center">
+<img src="Next Med display.jpg" width="350">
+</p>
+
+After taking medicine, the system shows the next schedule.  
+Helps users prepare for upcoming medication.
+
+---
+
+## 🔄 System Workflow  
+
+1. Initialize LCD, RTC, keypad, interrupts  
+2. Display current time  
+3. Enter Edit Mode using Switch1  
+4. Configure medicine timings  
+5. Monitor RTC continuously  
+6. Trigger alert when time matches  
+7. Stop alert using Switch2  
+8. Display next medicine  
+
+---
+
+## 🧠 Working Principle  
+
+- Switch1 → Enter setup mode  
+- Keypad → Configure time & medicine  
+- RTC → Provides real-time clock  
+- Controller → Compares time  
+- Match → Alert triggered 🔔  
+- Switch2 → Stops alert  
+
+---
+
+## 🎮 Keypad Controls  
+
+| Key | Function |
+|-----|---------|
+| 6 | Next Menu |
+| 4 | Previous Menu |
+| = | OK / Save |
+| C | Exit |
+| 5 | Instructions |
+
+---
+
+## 📁 Project Structure  
+
 ```
 USER-CONFIGURABLE-MEDICATION-REMINDER-SYSTEM
 │
 ├── src
-│   ├── Mini_Project.c
-│   ├── M_P_func.c
-│   ├── RTC_functions.c
-│   ├── LCD_functions.c
-│   ├── KPM_Func.c
-│   ├── EINT.c
-│   └── delay_functions.c
-│
 ├── include
-│   ├── M_P_func.h
-│   ├── RTC.h
-│   ├── lcd.h
-│   ├── KPM.h
-│   ├── EINT.h
-│   └── delay.h
-│
 ├── images
-│   ├── Block Diagram.jpg
-│   ├── Circuit Diagram.jpg
-│   ├── Edit Mode display.jpg
-│   ├── Controls UI.jpg
-│   ├── Add Med Slot UI.jpg
-│   ├── Slot ADD Succefully UI.jpg
-│   ├── TAke Medicine.jpg
-│   └── Next Med display.jpg
-│
 ├── proteus
-│   └── Medication_Reminder_System.pdsprj
-│
 └── README.md
 ```
-# System Workflow
-
-1. System initializes LCD, RTC, keypad, and interrupts.
-2. LCD displays the current time and date.
-3. User can enter **Edit Mode** using Switch1.
-4. User configures medicine schedules using keypad.
-5. System continuously compares RTC time with medicine schedules.
-6. When medicine time occurs, buzzer alert activates.
-7. User presses **Switch2** to stop alert.
-8. System calculates and displays the **next upcoming medicine**.
 
 ---
 
-# Advantages
+## 🎯 Advantages  
 
-* Helps users take medicines on time
-* Easy to configure schedules
-* Simple menu-based interface
-* Automatic next medicine detection
-* Useful for elderly patient care
+✔️ Helps patients take medicine on time  
+✔️ Easy to configure  
+✔️ Useful for elderly care  
+✔️ Low cost embedded system  
+✔️ Real-time monitoring  
 
 ---
 
-# Author
+## 👨‍💻 Author  
 
 **Mangena Balaji Sai Kumar**
+
+---
+
+## ⭐ Support  
+
+If you like this project, give it a ⭐ on GitHub!
