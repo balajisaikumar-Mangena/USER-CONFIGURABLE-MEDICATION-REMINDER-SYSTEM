@@ -12,6 +12,28 @@ Users can configure schedules using a **Keypad 🔢**.
 
 ---
 
+## 🧩 Block Diagram  
+
+<p align="center">
+<img src="Block Diagram.jpg" width="600">
+</p>
+
+This diagram shows how all components are connected to the LPC2148 microcontroller.  
+It illustrates the flow between keypad input, RTC processing, LCD output, and buzzer alert.
+
+---
+
+## 🔌 Circuit Diagram  
+
+<p align="center">
+<img src="Circuit Diagram.jpg" width="700">
+</p>
+
+The circuit diagram represents the real hardware connections used in Proteus simulation.  
+It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
+
+---
+
 # ✨ Features  
 
 ## ⏰ Real-Time Clock Integration  
@@ -94,27 +116,6 @@ Users can configure schedules using a **Keypad 🔢**.
 
 ---
 
-## 🧩 Block Diagram  
-
-<p align="center">
-<img src="Block Diagram.jpg" width="600">
-</p>
-
-This diagram shows how all components are connected to the LPC2148 microcontroller.  
-It illustrates the flow between keypad input, RTC processing, LCD output, and buzzer alert.
-
----
-
-## 🔌 Circuit Diagram  
-
-<p align="center">
-<img src="Circuit Diagram.jpg" width="700">
-</p>
-
-The circuit diagram represents the real hardware connections used in Proteus simulation.  
-It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
-
----
 
 ## ⚙️ Hardware Setup  
 
