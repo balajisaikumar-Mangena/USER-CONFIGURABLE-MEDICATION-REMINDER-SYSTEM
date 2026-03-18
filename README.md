@@ -67,7 +67,7 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 - Continuously compares RTC time with configured medicine slots  
 - Triggers alerts exactly when scheduled time matches  
 - Ensures timely medication reminders without manual checking
-  <p align="center">
+ <p align="center">
  <img src="TAke Medicine.jpg" width="350">
  </p>
 
@@ -85,7 +85,10 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 - Allows:
   - Adding new slots  
   - Editing existing timings  
-  - Navigating menus easily  
+  - Navigating menus easily
+    <p align="center">
+    <img src="KPM.jpg" width="300">
+    </p>  
 
 ---
 
@@ -171,18 +174,6 @@ Additionally, after stopping the alert, the system automatically:
 If the user does not press Switch2 within a predefined time, the system can automatically stop the alert and continue operation.
 
 ---
-
-## 🎮 Keypad Interface  
-
-<p align="center">
-<img src="KPM.jpg" width="300">
-</p>
-
-The keypad is used for navigating menus and entering data.  
-Users can set time, configure medicine slots, and control system options.
-
----
-
 
 ### 🎮 Controls Info
 <p align="center">
