@@ -5,10 +5,7 @@
 
 ## ✨ Overview  
 
-The **User Configurable Medication Reminder System** helps users take medicines on time using an embedded system.
-
-It uses **RTC ⏰** to track time and alerts using **LCD 📟 + Buzzer 🔔**.  
-Users can configure schedules using a **Keypad 🔢**.
+The **User Configurable Medication Reminder System** is an embedded solution developed using the **LPC2148 ARM7 microcontroller** to ensure timely medication intake. It uses a **Real-Time Clock (RTC)** for accurate time tracking and continuously monitors scheduled medicine timings. The system generates alerts through a **buzzer and LCD display**, ensuring the user is notified at the correct time. A **keypad-based interface** enables easy configuration and management of medicine schedules. The design follows an **interrupt-driven approach**, providing reliable and real-time operation suitable for healthcare assistance..
 
 ---
 
@@ -97,7 +94,7 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 - Includes options for:
   - Time/Date setup  
   - Medicine slot management  
-- Easy interaction for all users  
+- Easy interaction for all users
 
 ---
 
@@ -111,7 +108,10 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 ## ❌ Missed Dose Indication  
 - Detects when a scheduled medicine is not taken  
 - Displays warning message on LCD  
-- Helps improve medication adherence  
+- Helps improve medication adherence
+<p align="center">
+<img width="242" height="96" alt="image" src="https://github.com/user-attachments/assets/64669f04-d783-4024-a85a-0b59ac33a806" />
+</p>  
 
 ---
 
@@ -182,24 +182,6 @@ If the user does not press Switch2 within a predefined time, the system can auto
 
 Displays instructions for keypad usage.  
 Helps users understand navigation and control keys.
-
----
-
-## 🔔 Alert System  
-
-### ⚠️ Medicine Reminder
-
-
-This alert is triggered when RTC matches a medicine schedule.  
-The buzzer turns ON and user is prompted to take medicine.
-
----
-
-### ⏭️ Next Medicine Display
-
-
-After taking medicine, the system shows the next schedule.  
-Helps users prepare for upcoming medication.
 
 ---
 
