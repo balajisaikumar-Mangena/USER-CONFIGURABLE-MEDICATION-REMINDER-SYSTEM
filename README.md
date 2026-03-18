@@ -66,7 +66,10 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 ## 🔔 Smart Alert System  
 - Continuously compares RTC time with configured medicine slots  
 - Triggers alerts exactly when scheduled time matches  
-- Ensures timely medication reminders without manual checking  
+- Ensures timely medication reminders without manual checking
+  <p align="center">
+ <img src="TAke Medicine.jpg" width="350">
+ </p>
 
 ---
 
@@ -120,22 +123,52 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 ## ⚙️ Hardware Setup  
 
 ### 🔘 Switch 1 (Edit Mode)
+
+Switch1 is connected to an external interrupt pin (**EINT0**) of the LPC2148 microcontroller.  
+When the user presses this switch, the system immediately interrupts normal operation and enters **Edit Mode**.
 <p align="center">
-<img src="SW1_Edit_mode.jpg" width="250">
+<img src="Edit Mode display.jpg" width="350">
 </p>
 
-Switch1 is used to enter configuration or edit mode using external interrupt.  
-It allows the user to modify RTC time and medicine schedules.
+In Edit Mode, the user can:
+
+- Modify the **RTC time and date**
+- Configure **medicine schedules**
+- Add, edit, or update medicine slots
+- Navigate through menu options using the keypad
+
+This interrupt-based approach ensures that the user can access configuration settings **at any time**, without affecting the continuous RTC monitoring process.
+
+After completing the configuration, the system safely returns to normal operation and resumes real-time monitoring.
 
 ---
 
 ### 🔘 Switch 2 (Stop Alert)
+
+Switch2 is connected to an external interrupt pin (**EINT1**) of the LPC2148 microcontroller.  
+When a medicine reminder is triggered, the buzzer starts alerting the user continuously.
 <p align="center">
 <img src="SW2_stop_alert.jpg" width="250">
 </p>
 
-Switch2 is used to stop the buzzer alert during medicine reminders.  
-It confirms that the user has taken the medicine.
+By pressing Switch2, the system immediately:
+
+- Stops the **buzzer alert**
+- Clears the **reminder message** from the LCD
+- Confirms that the medicine has been taken
+
+This interrupt-driven mechanism ensures **instant response**, allowing the user to acknowledge the alert without delay.
+
+Additionally, after stopping the alert, the system automatically:
+
+- Updates the current medicine status as **"Taken"**
+- Displays the **next upcoming medicine schedule**
+- Resumes normal RTC monitoring operation
+<p align="center">
+<img src="Next Med display.jpg" width="350">
+</p>
+
+If the user does not press Switch2 within a predefined time, the system can automatically stop the alert and continue operation.
 
 ---
 
@@ -150,39 +183,6 @@ Users can set time, configure medicine slots, and control system options.
 
 ---
 
-## 📟 LCD User Interface  
-
-### 🟢 System Ready Screen
-<p align="center">
-<img src="MRS.png" width="350">
-</p>
-
-This screen indicates that the system is powered on and ready.  
-It shows the initial state before user interaction begins.
-
----
-
-### ⏰ RTC Time Display
-<p align="center">
-<img src="RTC TIME DATE MED DISPLAY.jpg" width="350">
-</p>
-
-Displays current time and date continuously from RTC.  
-Acts as the main monitoring screen of the system.
-
----
-
-## 📋 Menu Screens  
-
-### ✏️ Edit Mode
-<p align="center">
-<img src="Edit Mode display.jpg" width="350">
-</p>
-
-This menu allows the user to select RTC edit or medicine configuration.  
-Navigation is done using keypad inputs.
-
----
 
 ### 🎮 Controls Info
 <p align="center">
@@ -197,9 +197,7 @@ Helps users understand navigation and control keys.
 ## 🔔 Alert System  
 
 ### ⚠️ Medicine Reminder
-<p align="center">
-<img src="TAke Medicine.jpg" width="350">
-</p>
+
 
 This alert is triggered when RTC matches a medicine schedule.  
 The buzzer turns ON and user is prompted to take medicine.
@@ -207,9 +205,7 @@ The buzzer turns ON and user is prompted to take medicine.
 ---
 
 ### ⏭️ Next Medicine Display
-<p align="center">
-<img src="Next Med display.jpg" width="350">
-</p>
+
 
 After taking medicine, the system shows the next schedule.  
 Helps users prepare for upcoming medication.
