@@ -176,12 +176,19 @@ If the user does not press Switch2 within a predefined time, the system can auto
 ---
 
 ### 🎮 Controls Info
-<p align="center">
-<img src="Controls UI.jpg" width="350">
-</p>
 
-Displays instructions for keypad usage.  
-Helps users understand navigation and control keys.
+This screen provides a quick reference for keypad operations used in the system.  
+Users can navigate menus, modify values, and confirm actions using the defined keys.
+
+- **4 / 6** → Move between menu options (Left / Right)  
+- **2 / 8** → Increment / Decrement values (Up / Down)  
+- **=** → Confirm selection / Save settings  
+- **C** → Exit current menu or cancel operation
+<p align="center">
+<img width="238" height="96" alt="image" src="https://github.com/user-attachments/assets/8727e338-af51-489d-940f-d06e9e798d9d" />
+</p> 
+
+This interface ensures smooth and intuitive interaction with the system.
 
 ---
 
