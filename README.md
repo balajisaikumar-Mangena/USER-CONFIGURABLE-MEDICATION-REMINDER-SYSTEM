@@ -87,7 +87,7 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
   - Editing existing timings  
   - Navigating menus easily
     <p align="center">
-    <img src="KPM.jpg" width="300">
+    <img width="221" height="221" alt="image" src="https://github.com/user-attachments/assets/39688ab3-a0b9-4f9e-9408-40538c01dd11" />
     </p>  
 
 ---
