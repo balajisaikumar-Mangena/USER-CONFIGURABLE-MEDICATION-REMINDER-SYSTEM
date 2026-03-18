@@ -12,15 +12,85 @@ Users can configure schedules using a **Keypad 🔢**.
 
 ---
 
-## 🚀 Features  
+# ✨ Features  
 
-✔️ Real-Time Clock Monitoring  
-✔️ User Configurable Medicine Slots  
-✔️ LCD Menu Interface  
-✔️ Buzzer Alert System 🔔  
-✔️ Next Medicine Prediction  
-✔️ Interrupt-Based Control (EINT0 & EINT1)  
-✔️ Simple UI  
+## ⏰ Real-Time Clock Integration  
+- Utilizes the **LPC2148 RTC** for accurate timekeeping  
+- Maintains **current time, date, and day** continuously  
+- Ensures precise scheduling of medication alerts  
+
+---
+
+## 💊 Dynamic Medicine Slot Management ⭐  
+- Provides **3 default medicine slots**  
+- Allows users to:
+  - Edit existing slot timings  
+  - Update schedules anytime  
+- Supports **addition of up to 2 extra slots** based on user requirement  
+- Handles **up to 5 total medicine slots** efficiently  
+<p align="center">
+<img src="Add Med Slot UI.jpg" width="350">
+</p>
+
+---
+
+## 📟 Main Menu Medicine Schedule Display ⭐  
+- Displays **current time along with all active medicine slots**  
+- Enables users to view full schedule directly from the main screen  
+- Automatically updates when slots are added or modified  
+
+---
+
+## 🔔 Smart Alert System  
+- Continuously compares RTC time with configured medicine slots  
+- Triggers alerts exactly when scheduled time matches  
+- Ensures timely medication reminders without manual checking  
+
+---
+
+## 🔊 Audio-Visual Notification  
+- Buzzer alert for immediate attention  
+- LCD display messages for clear instructions  
+- Dual notification improves reliability  
+
+---
+
+## 🔢 User-Friendly Keypad Interface  
+- Simple keypad-based navigation  
+- Allows:
+  - Adding new slots  
+  - Editing existing timings  
+  - Navigating menus easily  
+
+---
+
+## ⚙️ Menu-Driven User Interface  
+- Structured and intuitive menu system  
+- Includes options for:
+  - Time/Date setup  
+  - Medicine slot management  
+- Easy interaction for all users  
+
+---
+
+## 🚨 Interrupt-Based Quick Access  
+- Uses External Interrupt (EINT) for instant response  
+- Enables quick entry into edit/configuration mode  
+- Improves system responsiveness  
+
+---
+
+## ❌ Missed Dose Indication  
+- Detects when a scheduled medicine is not taken  
+- Displays warning message on LCD  
+- Helps improve medication adherence  
+
+---
+
+## 🔄 Real-Time Monitoring System  
+- Continuously monitors all active medicine slots  
+- Fully automated operation  
+- No manual intervention required  
 
 ---
 
@@ -120,28 +190,6 @@ Navigation is done using keypad inputs.
 
 Displays instructions for keypad usage.  
 Helps users understand navigation and control keys.
-
----
-
-## 💊 Medicine Configuration  
-
-### ➕ Add Medicine Slot
-<p align="center">
-<img src="Add Med Slot UI.jpg" width="350">
-</p>
-
-Allows users to add a new medicine timing slot.  
-User presses '=' key to confirm addition.
-
----
-
-### ✅ Slot Added Successfully
-<p align="center">
-<img src="Slot ADD Succefully UI.jpg" width="350">
-</p>
-
-Confirms that the medicine slot has been saved.  
-Provides feedback to the user after successful configuration.
 
 ---
 
