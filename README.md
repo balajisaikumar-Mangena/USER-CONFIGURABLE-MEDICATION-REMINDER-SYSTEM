@@ -36,7 +36,10 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 ## ⏰ Real-Time Clock Integration  
 - Utilizes the **LPC2148 RTC** for accurate timekeeping  
 - Maintains **current time, date, and day** continuously  
-- Ensures precise scheduling of medication alerts  
+- Ensures precise scheduling of medication alerts
+<p align="center">
+<img width="241" height="97" alt="image" src="https://github.com/user-attachments/assets/b2fcfde4-1a21-4839-a44a-8e571f518c87" />
+</p>
 
 ---
 
