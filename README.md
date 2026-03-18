@@ -246,9 +246,11 @@ Helps users prepare for upcoming medication.
 |-----|---------|
 | 6 | Next Menu |
 | 4 | Previous Menu |
-| = | OK / Save |
+| 8 | Decrement |
+| 2 | Increment |
+| = | OK / Save & Back |
 | C | Exit |
-| 5 | Instructions |
+| 5 | Controls |
 
 ---
 
