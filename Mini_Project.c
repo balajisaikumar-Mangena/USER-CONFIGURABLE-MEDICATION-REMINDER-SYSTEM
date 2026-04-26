@@ -6,33 +6,97 @@
 #include "EINT.h"
 #include "M_P_func.h"
 
-volatile unsigned char fl = 0;
-volatile unsigned char f2 = 0;
+/*====================================================================
+ *                      HARDWARE INTERFACE
+ *====================================================================*/
 
-unsigned int flag = 0;
+/*
+ * LCD Interface (8-bit mode)
+ * RS  -> P0.5
+ * EN  -> P0.6
+ * D0–D7 -> P0.8 – P0.15
+ *
+ * Keypad Interface
+ * Rows -> P1.16 – P1.19
+ * Cols -> P1.20 – P1.23
+ *
+ * Buzzer
+ * BUZZ -> P0.16
+ *
+ * External Interrupt Inputs
+ * SW1 -> P0.1   : Enter Edit Mode
+ * SW2 -> P0.13  : Stop Buzzer
+ */
 
-int main()
+
+/*====================================================================
+ *                      GLOBAL VARIABLES
+ *====================================================================*/
+
+/* 
+ * fl  : Set by SW1 interrupt ? triggers Edit Mode
+ * f2  : Set by SW2 interrupt ? used to stop buzzer
+ * flag: Reserved for application-specific logic
+ */
+volatile unsigned char f1  = 0;
+volatile unsigned char f2  = 0;
+unsigned int           flag = 0;
+
+
+/*====================================================================
+ *                      MAIN APPLICATION
+ *====================================================================*/
+
+int main(void)
 {
-	init_LCD();              // Initialization of LCD
-	init_KPM();              // Initialization of KPM
-	RTC_Init();              // Initialization of RTC
-	Interrupt_Init();        // Initialization of Interrupts
+    /*---------------- System Initialization ----------------*/
+    
+    init_LCD();                           /* Initialize LCD module */
+    init_KPM();                           /* Initialize Keypad interface */
+    RTC_Init();                           /* Initialize Real-Time Clock */
+    Interrupt_Init();                     /* Configure External Interrupts */
+		__enable_irq();
 
-	MRS();                   // Display Project name
+    /*---------------- Startup Display ----------------*/
+    
+    MRS();                                /* Display project title / splash screen */
 
-	SetRTCTimeInfo(06,29,55);
-	SetRTCDateInfo(16,03,2026);
-	SetRTCDay(1);
-	
-	while(1){
-		if(fl){                 // Interrupt Occurs
-			cmd_LCD(0x01);        // Clear LCD
-			MENU();								// Edit Mode Menu
-			Edit_menu();          // Edit RTC Time Date and MED Time Menu 
-			fl=0;									// Exit From Edit Menu 	
-			cmd_LCD(0x01);
-		}
-		Display_Menu();         // Display RTC time date and Med Time 
-		Alert();                // Buzzer on when MED Time Matches 
-	}
+    /*---------------- Default RTC Configuration ----------------*/
+    
+    SetRTCTimeInfo(10, 00, 50);           /* HH:MM:SS */
+    SetRTCDateInfo(03, 04, 2026);         /* DD/MM/YYYY */
+    SetRTCDay(5);                         /* Day index (implementation-specific) */
+
+
+    /*---------------- Main Control Loop ----------------*/
+    
+    while (1)
+    {
+        /*------------------------------------------------------
+         * Handle Edit Mode Trigger (External Interrupt SW1)
+         *-----------------------------------------------------*/
+        if (f1 == 1)
+        {
+            cmd_LCD(0x01);               /* Clear display */
+
+            MENU();                      /* Display configuration menu */
+            Edit_menu();                 /* User edits time/date/alert */
+
+            f1 = 0;                     /* Reset flag after handling */
+
+            cmd_LCD(0x01);               /* Refresh display */
+        }
+
+        /*------------------------------------------------------
+         * Normal Operation Mode
+         *-----------------------------------------------------*/
+        
+        Display_Menu();                  /* Show RTC time, date, and alarm */
+
+        /*------------------------------------------------------
+         * Alert Monitoring
+         *-----------------------------------------------------*/
+        
+        Alert();                         /* Activate buzzer on match condition */
+    }
 }

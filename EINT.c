@@ -1,18 +1,35 @@
-#include <lpc21xx.h>
+/*====================================================================
+ *                  EXTERNAL INTERRUPT (EINT) MODULE
+ *====================================================================*/
 
-extern volatile unsigned char fl,f2;
+#include <lpc21xx.h>                         // LPC21xx register definitions
 
-void EINT0_ISR(void) __irq{
-    fl = 1;                        // Edit mode flag
-    EXTINT = 1<<0;                 // Clear interrupt flag
-    VICVectAddr = 0;               // Acknowledge interrupt
+extern volatile unsigned char f1, f2;        // Flags updated by interrupts
+
+
+/*====================================================================
+ *                  EINT0 INTERRUPT SERVICE ROUTINE
+ *====================================================================*/
+void EINT0_ISR(void) __irq                   // ISR for EINT0 (P0.1)
+{
+    f1 = 1;                                  // Set flag ? enter edit mode
+    EXTINT = 1 << 0;                         // Clear EINT0 interrupt flag
+    VICVectAddr = 0;                         // Acknowledge interrupt to VIC
 }
 
-void EINT1_ISR(void) __irq{
-    f2 = 1;
-    EXTINT = 1<<1;
-    VICVectAddr = 0;
+/*====================================================================
+ *                  EINT1 INTERRUPT SERVICE ROUTINE
+ *====================================================================*/
+void EINT1_ISR(void) __irq                   // ISR for EINT1 (P0.3)
+{
+    f2 = 1;                                  // Set flag ? stop buzzer
+    EXTINT = 1 << 1;                         // Clear EINT1 interrupt flag
+    VICVectAddr = 0;                         // End interrupt
 }
+
+/*====================================================================
+ *                  INTERRUPT INITIALIZATION
+ *====================================================================*/
 
 void Interrupt_Init(void){
 	
