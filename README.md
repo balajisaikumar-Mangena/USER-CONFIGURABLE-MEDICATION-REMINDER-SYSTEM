@@ -12,7 +12,8 @@ The **User Configurable Medication Reminder System** is an embedded solution dev
 ## 🧩 Block Diagram  
 
 <p align="center">
-<img src="Block Diagram.jpg" width="600">
+<img width="700" height="460" alt="Block Diagram" src="https://github.com/user-attachments/assets/6a8b0fe3-7684-400b-bf5d-158b2a809f9c" />
+
 </p>
 
 This diagram shows how all components are connected to the LPC2148 microcontroller.  
@@ -23,7 +24,8 @@ It illustrates the flow between keypad input, RTC processing, LCD output, and bu
 ## 🔌 Circuit Diagram  
 
 <p align="center">
-<img src="Circuit Diagram.jpg" width="700">
+<img width="1015" height="648" alt="Circuit Diagram" src="https://github.com/user-attachments/assets/8f5b9c8f-349a-4700-b9e0-49b78d28dc31" />
+
 </p>
 
 The circuit diagram represents the real hardware connections used in Proteus simulation.  
@@ -38,7 +40,7 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 - Maintains **current time, date, and day** continuously  
 - Ensures precise scheduling of medication alerts
 <p align="center">
-<img width="241" height="97" alt="image" src="https://github.com/user-attachments/assets/b2fcfde4-1a21-4839-a44a-8e571f518c87" />
+<img width="246" height="100" alt="image" src="https://github.com/user-attachments/assets/b2fcfde4-1a21-4839-a44a-8e571f518c87" />
 </p>
 
 ---
@@ -51,7 +53,8 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 - Supports **addition of up to 2 extra slots** based on user requirement  
 - Handles **up to 5 total medicine slots** efficiently  
 <p align="center">
-<img src="Add Med Slot UI.jpg" width="350">
+<img width="246" height="100" alt="Add Med Slot UI" src="https://github.com/user-attachments/assets/3f22ee4f-a70d-403a-9b77-d3d72c478040" />
+
 </p>
 
 ---
@@ -68,7 +71,8 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 - Triggers alerts exactly when scheduled time matches  
 - Ensures timely medication reminders without manual checking
  <p align="center">
- <img src="TAke Medicine.jpg" width="350">
+ <img width="246" height="100" alt="TAke Medicine" src="https://github.com/user-attachments/assets/3246bf50-8e0a-4458-aab6-9afeaa083f5f" />
+
  </p>
 
 ---
@@ -133,7 +137,9 @@ It includes LPC2148, LCD, keypad, switches, and buzzer wiring details.
 Switch1 is connected to an external interrupt pin (**EINT0**) of the LPC2148 microcontroller.  
 When the user presses this switch, the system immediately interrupts normal operation and enters **Edit Mode**.
 <p align="center">
-<img src="Edit Mode display.jpg" width="350">
+<img width="317" height="208" alt="SW1_Edit_mode" src="https://github.com/user-attachments/assets/c120d629-088b-463a-b004-57110c06acf3" />
+
+
 </p>
 
 In Edit Mode, the user can:
@@ -154,7 +160,8 @@ After completing the configuration, the system safely returns to normal operatio
 Switch2 is connected to an external interrupt pin (**EINT1**) of the LPC2148 microcontroller.  
 When a medicine reminder is triggered, the buzzer starts alerting the user continuously.
 <p align="center">
-<img src="SW2_stop_alert.jpg" width="250">
+<img width="287" height="185" alt="SW2_stop_alert" src="https://github.com/user-attachments/assets/ea839bc3-cc6c-4f9c-b0a3-11c7ff2fb050" />
+
 </p>
 
 By pressing Switch2, the system immediately:
@@ -171,7 +178,9 @@ Additionally, after stopping the alert, the system automatically:
 - Displays the **next upcoming medicine schedule**
 - Resumes normal RTC monitoring operation
 <p align="center">
-<img src="Next Med display.jpg" width="350">
+<img width="246" height="100" alt="Next Med display" src="https://github.com/user-attachments/assets/97e2d158-d44a-492a-9159-f98413512020" />
+
+
 </p>
 
 If the user does not press Switch2 within a predefined time, the system can automatically stop the alert and continue operation.
